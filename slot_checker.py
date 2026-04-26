@@ -3,8 +3,7 @@ import requests
 
 TOKEN = os.getenv("TELEGRAM_TOKEN")
 CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
-
-URL = "PUT_YOUR_RDV_URL_HERE"
+URL = os.getenv("TARGET_URL")
 
 def notify(msg):
     requests.get(
