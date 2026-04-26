@@ -4,6 +4,8 @@ on:
   schedule:
     - cron: "*/5 * * * *"  # every 5 minutes
   workflow_dispatch:
+  repository_dispatch:
+    types: [run-check]
 
 jobs:
   run-check:
