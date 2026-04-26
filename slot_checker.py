@@ -20,8 +20,8 @@ try:
     print(f"Response length: {len(html)} characters")
     print(f"HTML content:\n{html}")
 
-    if "test" not in html:
-        notify(f"RDV AVAILABLE!\n\n{URL}")
+    if "aucun créneau" not in html:
+        notify(f"RDV Disponible!\n\n{URL}")
         exit(1)
 
     print("No slots found")
