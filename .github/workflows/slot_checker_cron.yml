@@ -1,11 +1,11 @@
-name: Check Appointment Slots
+name: Check Appointment Availability
 
 on:
   schedule:
     - cron: "*/5 * * * *"  # every 5 minutes
   workflow_dispatch:
   repository_dispatch:
-    types: [run-check]
+    types: [run-appointment-checker]
 
 jobs:
   run-check:
