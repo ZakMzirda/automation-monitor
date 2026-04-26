@@ -16,7 +16,7 @@ try:
     html = r.text.lower()
 
     if "aucun créneau" not in html:
-        notify("RDV AVAILABLE!")
+        notify(f"RDV AVAILABLE!\n\n{URL}")
         exit(1)
 
     print("No slots found")
