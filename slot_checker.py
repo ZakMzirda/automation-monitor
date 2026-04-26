@@ -18,7 +18,7 @@ try:
     # Debug: log page content and status
     print(f"Status code: {r.status_code}")
     print(f"Response length: {len(html)} characters")
-    print(f"HTML content:\n{html[:2000]}")  # First 2000 chars for debugging
+    print(f"HTML content:\n{html}")
 
     if "aucun créneau" not in html:
         notify(f"RDV AVAILABLE!\n\n{URL}")
