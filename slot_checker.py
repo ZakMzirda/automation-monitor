@@ -6,7 +6,7 @@ from email.message import EmailMessage
 TOKEN = os.getenv("TELEGRAM_TOKEN")
 CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
 URL = os.getenv("TARGET_URL")
-SMTP_HOST = os.getenv("SMTP_HOST", "smtp.gmail.com")
+SMTP_HOST = os.getenv("SMTP_HOST")
 SMTP_PORT = 465
 EMAIL_SENDER = os.getenv("EMAIL_SENDER")
 EMAIL_APP_PASSWORD = os.getenv("EMAIL_APP_PASSWORD")
