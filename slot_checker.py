@@ -45,7 +45,7 @@ def notify_email(msg):
         return
 
     try:
-        sent_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        sent_at = datetime.now().isoformat(sep=" ", timespec="seconds")
         email_message = EmailMessage()
         email_message["Subject"] = f"Rendez-vous préfecture disponible - {sent_at}"
         email_message["From"] = EMAIL_SENDER
