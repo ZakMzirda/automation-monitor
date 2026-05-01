@@ -45,7 +45,7 @@ def notify_email(msg):
         return
 
     try:
-        sent_at = time.time()
+        sent_at = int(time.time())
         email_message = EmailMessage()
         email_message["Subject"] = f"Rendez-vous préfecture disponible - {sent_at}"
         email_message["From"] = EMAIL_SENDER
