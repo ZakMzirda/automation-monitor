@@ -71,7 +71,7 @@ try:
     print(f"Response length: {len(html)} characters")
     print(f"HTML content:\n{html}")
 
-    if "aucun créneau" not in html:
+    if "test" not in html:
         notify(
             "RDV disponible – cliquez rapidement sur le lien ci-dessous pour le prendre\n\n"
             f"{URL}\n\n"
