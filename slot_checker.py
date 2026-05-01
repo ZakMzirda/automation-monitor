@@ -1,7 +1,7 @@
 import os
 import requests
 import smtplib
-from datetime import datetime
+import time
 from email.message import EmailMessage
 
 TOKEN = os.getenv("TELEGRAM_TOKEN")
@@ -45,7 +45,7 @@ def notify_email(msg):
         return
 
     try:
-        sent_at = datetime.now().isoformat(sep=" ", timespec="seconds")
+        sent_at = time.time()
         email_message = EmailMessage()
         email_message["Subject"] = f"Rendez-vous préfecture disponible - {sent_at}"
         email_message["From"] = EMAIL_SENDER
