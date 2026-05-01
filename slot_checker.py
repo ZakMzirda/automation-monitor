@@ -43,15 +43,20 @@ def notify_email(msg):
         print("Email notifications skipped: EMAIL_SENDER or EMAIL_APP_PASSWORD is missing")
         return
 
-    email_message = EmailMessage()
-    email_message["Subject"] = "Slot Checker Alert"
-    email_message["From"] = EMAIL_SENDER
-    email_message["To"] = ", ".join(recipients)
-    email_message.set_content(msg)
+    try:
+        email_message = EmailMessage()
+        email_message["Subject"] = "Slot Checker Alert"
+        email_message["From"] = EMAIL_SENDER
+        email_message["To"] = ", ".join(recipients)
+        email_message.set_content(msg)
 
-    with smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT) as smtp:
-        smtp.login(EMAIL_SENDER, EMAIL_APP_PASSWORD)
-        smtp.send_message(email_message)
+        print(f"Sending email to {recipients} via {SMTP_HOST}:{SMTP_PORT}")
+        with smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT) as smtp:
+            smtp.login(EMAIL_SENDER, EMAIL_APP_PASSWORD)
+            smtp.send_message(email_message)
+        print("Email sent successfully")
+    except Exception as e:
+        print(f"ERROR sending email: {e}")
 
 def notify(msg):
     notify_telegram(msg)
