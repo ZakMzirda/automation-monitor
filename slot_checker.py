@@ -16,7 +16,11 @@ EMAIL_RECIPIENTS = os.getenv("EMAIL_RECIPIENTS", "")
 
 def load_recipients():
     # Comma-separated list, e.g. "a@example.com,b@example.com"
-    recipients = [email.strip() for email in EMAIL_RECIPIENTS.split(",") if email.strip()]
+    recipients = [
+        email.strip()
+        for email in EMAIL_RECIPIENTS.split(",")
+        if email.strip() and "@" in email
+    ]
 
     # Deduplicate while preserving input order.
     return list(dict.fromkeys(recipients))
@@ -73,7 +77,7 @@ try:
     print(f"Response length: {len(html)} characters")
     print(f"HTML content:\n{html}")
 
-    if "aucun créneau" not in html:
+    if "test" not in html:
         notify(
             "RDV disponible – cliquez rapidement sur le lien ci-dessous pour le prendre\n\n"
             f"{URL}\n\n"
