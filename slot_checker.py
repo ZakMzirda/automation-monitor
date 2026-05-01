@@ -45,7 +45,7 @@ def notify_email(msg):
 
     try:
         email_message = EmailMessage()
-        email_message["Subject"] = "Slot Checker Alert"
+        email_message["Subject"] = "Rendez-vous préfecture disponible"
         email_message["From"] = EMAIL_SENDER
         email_message["To"] = ", ".join(recipients)
         email_message.set_content(msg)
@@ -72,7 +72,11 @@ try:
     print(f"HTML content:\n{html}")
 
     if "test" not in html:
-        notify(f"RDV Disponible!\n\n{URL}")
+        notify(
+            "RDV disponible – cliquez rapidement sur le lien ci-dessous pour le prendre\n\n"
+            f"{URL}\n\n"
+            "Pour rappel, il faut se connecter afin de prendre un rendez-vous."
+        )
         exit(1)
 
     print("No slots found")
